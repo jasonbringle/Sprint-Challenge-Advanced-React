@@ -1,10 +1,17 @@
-import React from 'react'
+import React from "react";
 
-const Players = () => {
-return(
+function Players(props) {
+  return (
     <div>
-        Hello
+      {props.players.map((person,key) => {
+        return (
+          <div>
+            <h1 index={key}>{person.name}</h1>
+            <p>{person.country}</p>
+          </div>
+        );
+      })}
     </div>
-)
+  );
 }
 export default Players;
