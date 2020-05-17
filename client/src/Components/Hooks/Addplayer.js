@@ -11,6 +11,7 @@ const AddPlayer = () =>{
 
 return(
     <div>
+        {console.log(values)}
         <form onSubmit={handleSubmit}>
             <label>Name</label>
                 <input
@@ -18,9 +19,7 @@ return(
                 value={values.name}
                 onChange={handleChange}
                 ></input>
-            <label>
-                Country of Origin
-            </label>
+            <label>Country of Origin</label>
                 <input
                 name='country'
                 value={values.country}

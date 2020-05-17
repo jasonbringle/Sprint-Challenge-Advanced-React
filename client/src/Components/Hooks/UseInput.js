@@ -1,19 +1,28 @@
 import { useLocalStorage } from './UseLocalStorage';
+import { useState } from 'react'
 
 function useInput(key, initialValues, cb){
-    const [values, setValues] = useLocalStorage(key, initialValues)
+  const [ newMem, setNewMem ] = useState ({})
+
+  const [ values, setValues ] = useLocalStorage(initialValues, key)
+
     const changeHandler = e => {
         e.preventDefault();
         // console.log(e.target.value)
-        setValues({ ...values, [e.target.name]: e.target.value });
+        setNewMem([ 
+          ...values, 
+          {[e.target.name]: e.target.value }
+        ])
+      }
+
+      const handleSubmit = e => {
+        e.preventDefault();
+        setValues(newMem)
+        clearForm();
       };
+
       const clearForm = () => {
         setValues(initialValues);
-      };
-    const handleSubmit = e => {
-        e.preventDefault();
-        cb();
-        clearForm();
       };
       
       return[ values, changeHandler, handleSubmit, clearForm ]

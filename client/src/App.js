@@ -1,6 +1,5 @@
 import React from 'react';
-import Players from './Components/Players'
-import AddPlayer from './Components/Hooks/Addplayer'
+import Page from './Components/Page'
 import './App.css';
 
 class App extends React.Component{
@@ -20,10 +19,7 @@ class App extends React.Component{
 
   render(){
     return (
-      <div>
-        <AddPlayer />
-      <Players players={this.state.players}/>
-      </div>
+      <Page players={this.state.players}/>
   );}
 }
 
